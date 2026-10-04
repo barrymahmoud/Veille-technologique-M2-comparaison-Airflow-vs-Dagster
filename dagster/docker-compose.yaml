@@ -1,0 +1,39 @@
+# Dagster en mode "dagster dev" (interface + daemon de planification dans un seul conteneur).
+# Identifiants de la base : valeurs de développement local uniquement.
+services:
+  warehouse:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: warehouse
+      POSTGRES_PASSWORD: warehouse
+      POSTGRES_DB: warehouse
+    ports:
+      - "5434:5432"
+    volumes:
+      - dagster-warehouse-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "warehouse"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+
+  dagster:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      WAREHOUSE_DB_URL: postgresql+psycopg2://warehouse:warehouse@warehouse:5432/warehouse
+    volumes:
+      - ./definitions.py:/opt/project/dagster/definitions.py
+      - ../src:/opt/project/src
+      - ../data:/opt/project/data
+      - dagster-home-volume:/opt/dagster_home
+    depends_on:
+      warehouse:
+        condition: service_healthy
+    restart: always
+
+volumes:
+  dagster-warehouse-volume:
+  dagster-home-volume:

@@ -1,0 +1,6 @@
+dagster==1.13.25
+dagster-webserver==1.13.25
+pandas==3.0.2
+pyarrow==25.0.1
+sqlalchemy==2.1.2
+psycopg2-binary==2.9.13
