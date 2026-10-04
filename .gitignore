@@ -1,3 +1,10 @@
 data/raw/*.parquet
 data/*.db
 __pycache__/
+airflow/.env
+airflow/logs/
+airflow/docker-compose.yaml.bak
+data/staging/
+
+airflow/config/
+airflow/plugins/
