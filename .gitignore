@@ -9,3 +9,4 @@ data/staging/
 airflow/config/
 airflow/plugins/
 captures/15_*
+captures/25_*
