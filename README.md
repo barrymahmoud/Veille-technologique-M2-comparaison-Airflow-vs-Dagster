@@ -61,7 +61,7 @@ docker compose stop
 ```
 
 Paramètres au déclenchement du DAG `taxi_pipeline` : `env` (`dev` = 10 000 lignes, `prod` = tout), `fail_at` (`none`, `extract`, `clean`, `load`, `report`).
-Planification : `0 6 * * *`. Le DAG est actif par défaut dans l'interface.
+Planification : `0 6 * * *`. Le DAG est créé **en pause** (réglage du compose officiel) : l'activer avec l'interrupteur dans l'interface avant d'attendre une exécution planifiée.
 
 ## Dagster (interface : http://localhost:3000)
 

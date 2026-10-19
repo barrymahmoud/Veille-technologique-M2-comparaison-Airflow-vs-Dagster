@@ -12,7 +12,7 @@ Données : taxis jaunes NYC, janvier 2024, échantillon de 100 000 lignes (seed 
 | Python pur → SQLite (4 runs, 2 oct.) | 4,1 s | 3,7 s | 3,6 s (+ 4,1 s) | 3,9 s | base différente : non comparable [02] |
 | Python pur → PostgreSQL (5 oct.) | 27,2 s | 25,6 s | 27,9 s | **27,2 s** | exécuté dans le conteneur Dagster [27] |
 | Dagster, run complet `prod` (5 oct.) | 60 s | 52 s | 50 s | **52 s** | durée affichée par l'interface [28] |
-| Airflow, run complet `prod` (5 oct.) | 43,8 s | 65 s | 59,3 s | **59,3 s** | run 2 (20:39) : `env=prod` À CONFIRMER [29] |
+| Airflow, run complet `prod` (5 oct.) | 43,8 s | 65 s | 59,3 s | **59,3 s** | `env=prod` confirmé pour 20:29 (fichier `daily_prod.csv` modifié à 20:30) et 20:39 (colonne Configuration, capture 31) ; run de 20:42 à confirmer [29] |
 
 Mesures isolées d'une autre session (4 oct.) : Airflow `dev` 15,9 s [06], Airflow `prod` 47,8 s [07], Dagster `dev` 18 s [17], Dagster `prod` 34 s [18].
 Runs planifiés Dagster en `dev` : 33 s chacun [24]. Ne pas les comparer aux runs `prod`.
@@ -50,7 +50,7 @@ Dagster déclare en plus la ressource, le job et la planification dans ce fichie
 | | Airflow | Dagster |
 |---|---|---|
 | Initialisation | `airflow-init` : 58,5 s [03] | build de l'image : 180,1 s [Dagster, étape build] |
-| Démarrage des services | apiserver healthy après 153,7 s [04] | warehouse healthy 19,3 s, dagster started 18,0 s |
+| Démarrage des services | apiserver healthy après 153,7 s [04] ; 288,8 s au démarrage du 18 oct. | warehouse healthy 19,3 s, dagster started 18,0 s |
 | Conteneurs lancés | 8 (dont `warehouse`) | 2 (dont `warehouse`) |
 | Temps de mise en œuvre total | À COMPLÉTER (en heures, incidents compris) | À COMPLÉTER |
 
