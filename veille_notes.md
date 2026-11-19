@@ -20,7 +20,7 @@ Les chiffres de GitHub sont une photo instantanée à cette date.
 | Offre commerciale | Dagster | La documentation met en avant « Dagster+ » (bouton « Try Dagster+ », quickstarts Hybrid et Serverless) à côté de l'open source | https://dagster.io/docs |
 | Communauté | Dagster | Le README renvoie vers un Slack, des archives Slack, les GitHub Discussions et un guide de contribution | https://github.com/dagster-io/dagster (README) |
 
-## 2. Informations relevées dans la documentation (à vérifier en ouvrant chaque page)
+## 2. Informations relevées dans la documentation 
 
 Lecture faite par recherche web (extraits de pages, parfois d'une version précédente de la documentation). : [06/10/2026].
 

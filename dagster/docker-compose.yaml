@@ -25,7 +25,7 @@ services:
     environment:
       WAREHOUSE_DB_URL: postgresql+psycopg2://warehouse:warehouse@warehouse:5432/warehouse
     volumes:
-      - ./definitions.py:/opt/project/dagster/definitions.py
+      - .:/opt/project/dagster
       - ../src:/opt/project/src
       - ../data:/opt/project/data
       - dagster-home-volume:/opt/dagster_home
